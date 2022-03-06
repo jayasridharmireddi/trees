@@ -1,0 +1,46 @@
+  /// using 2 funs method      
+     int ht(Node root){
+        if(root==null){
+            return 0;
+        }
+        int lht= ht(root.left);
+        int rht=ht(root.right);
+        return 1+ Math.max(lht,rht);
+    }
+    void levelorder(Node node){
+        int h= ht(node);
+        for(int i=1;i<=h;i++){
+            printlevel(node,i);
+        }
+    }
+    void printlevel(Node node, int l){
+        if(node==null)
+            return ;
+        if(l==1){
+            System.out.print(node.data);
+        }
+        printlevel(node.left,l-1);
+        printlevel(node.right,l-1);
+    }
+    
+    
+    
+    
+    
+    /// using a queue
+    
+    
+    void level2(Node node){
+        Queue<Node> q= new LinkedList<Node>(); 
+        q.add(node);
+        while(!q.isEmpty()){
+            Node root= q.remove();
+            System.out.print(root.data+" ");
+            if(root.left!=null){
+               q.add(root.left);
+            }
+            if(root.right!=null){
+              q.add(root.right);
+            }  
+        }
+    }

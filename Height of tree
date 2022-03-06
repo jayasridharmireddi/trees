@@ -1,0 +1,13 @@
+ht==== no.of edges from root to leaf(max)
+depth= no.of edges from that node to root node.
+
+https://stackoverflow.com/questions/2603692/what-is-the-difference-between-tree-depth-and-height#:~:text=The%20height%20of%20a%20tree%20is%20defined%20as%20the%20height,node%20are%20not%20necessarily%20equal.
+
+
+int ht(Node root){
+   if(root==null)
+      return -1;
+   int leftht= ht(root.left);
+   int rtht= ht(root.right);
+   return 1+max(leftht,rtht);
+}
